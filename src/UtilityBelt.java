@@ -88,9 +88,16 @@ public class UtilityBelt
     	
     	// Write out each equipment, adding a newline between toStrings:
     	// TODO: complete method
-    	
+    	for (int i=0; i<equipment.size(); i++) {
+    		String temp = equipment.get(i).toString();
+    		
+    		bw.write(temp);
+    		bw.newLine();
+    		System.out.println(temp);
+    	}
     	// Close the writer:
       // TODO: close writer
+    	bw.close();
     }
     
     /**
@@ -115,6 +122,7 @@ public class UtilityBelt
      */
     public double computeTotalWeight()
     {
+		return 0;
         // TODO: complete method
     }
     
@@ -127,6 +135,7 @@ public class UtilityBelt
      */
     public Equipment getNamedEquipment(String name)
     {
+		return null;
     	// TODO: complete method
     }
     
@@ -138,6 +147,7 @@ public class UtilityBelt
      */
     public ArrayList<Equipment> equipmentAboveCount(int count)
     {
+		return equipment;
         // TODO: complete method
     }
     
@@ -149,6 +159,7 @@ public class UtilityBelt
      */
     public Equipment findMostExpensiveEquipment()
     {
+		return null;
         // TODO: complete method
     }
 }

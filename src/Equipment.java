@@ -9,7 +9,8 @@
  */
 public class Equipment
 {
-    /**
+    
+	/**
      * The name of the items.
      */
     private String name;
@@ -46,7 +47,15 @@ public class Equipment
      */
     public Equipment(String strg)
     {
+    	
         // TODO: complete method
+    	String[] stuff = strg.split("/|,");
+    	name=stuff[0];
+    	count=Integer.parseInt(stuff[1]);
+    	totalWeight = Double.parseDouble(stuff[2]);
+    	totalPrice = Double.parseDouble(stuff[3]);
+    	description = stuff[4];
+    	return;
     }
     
     /**
@@ -62,8 +71,30 @@ public class Equipment
     public String toString()
     {
         // TODO: complete method
+    	return String.format("Name: %s, Number: %d, Weight: %.2f lbs, Price: $%.2f - %s",
+                name, count, totalWeight, totalPrice, description);
     }
     
-    // TODO: create getters...
+    // TODO: create getters..
+    public String getName() {
+		return name;
 	}
-}
+
+	public int getCount() {
+		return count;
+	}
+
+	public double getTotalWeight() {
+		return totalWeight;
+	}
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	}
+
