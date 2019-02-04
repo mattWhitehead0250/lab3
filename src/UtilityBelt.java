@@ -113,6 +113,8 @@ public class UtilityBelt
     public void writeStatistics(String filename) throws IOException
     {
     	// TODO: complete method
+    	BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
+    	
     }
     
     /**
@@ -122,8 +124,16 @@ public class UtilityBelt
      */
     public double computeTotalWeight()
     {
-		return 0;
         // TODO: complete method
+    	
+    	Double total = null;
+    	
+    	for(int i= 0; i<equipment.size(); i++) {
+    		Equipment currEquipment = equipment.get(i);
+    		Double weight = currEquipment.getTotalWeight();
+    		total += weight;
+    	}
+    	return total;
     }
     
     /**
@@ -135,8 +145,19 @@ public class UtilityBelt
      */
     public Equipment getNamedEquipment(String name)
     {
-		return null;
+		
     	// TODO: complete method
+    	for(int i=0; i<equipment.size(); i++) {
+    		Equipment currEquipment = equipment.get(i);
+    		String currName = currEquipment.getName();
+    		boolean isSameName = currName.equalsIgnoreCase(name);
+    		if (isSameName) {
+    			return currEquipment;
+    			
+    		} 
+    	} return null;
+		
+    	
     }
     
     /**
@@ -147,8 +168,12 @@ public class UtilityBelt
      */
     public ArrayList<Equipment> equipmentAboveCount(int count)
     {
-		return equipment;
+		ArrayList<Integer> currItem = new ArrayList<Integer>(); 
         // TODO: complete method
+    	for (int i=0; i<equipment.size(); i++) {
+    		Equipment currEquipment = equipment.get(i);
+    		Integer currCount = currEquipment.
+    	}
     }
     
     /**
