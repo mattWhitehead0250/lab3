@@ -114,7 +114,13 @@ public class UtilityBelt
     {
     	// TODO: complete method
     	BufferedWriter bw = new BufferedWriter(new FileWriter(filename));
-    	
+    	Double totalWeight = computeTotalWeight(); 
+    	String mostExpensiveEquipment = findMostExpensiveEquipment().getName();
+    	String temp = String.format("Total Weight: %.1f\nMost Expensive Equipment: %s",
+                totalWeight, mostExpensiveEquipment);
+    	bw.write(temp);
+    	System.out.println(temp);
+    	bw.close();
     }
     
     /**
@@ -126,7 +132,7 @@ public class UtilityBelt
     {
         // TODO: complete method
     	
-    	Double total = null;
+    	Double total = 0.0;
     	
     	for(int i= 0; i<equipment.size(); i++) {
     		Equipment currEquipment = equipment.get(i);
@@ -168,12 +174,17 @@ public class UtilityBelt
      */
     public ArrayList<Equipment> equipmentAboveCount(int count)
     {
-		ArrayList<Integer> currItem = new ArrayList<Integer>(); 
+		ArrayList<Equipment> currItem = new ArrayList<Equipment>(); 
         // TODO: complete method
     	for (int i=0; i<equipment.size(); i++) {
     		Equipment currEquipment = equipment.get(i);
-    		Integer currCount = currEquipment.
+    		int currThing = currEquipment.getCount();
+    		
+    		if (count > currThing) {
+    			currItem.add(currEquipment);    		
+    		}
     	}
+    	return currItem;
     }
     
     /**
@@ -184,7 +195,16 @@ public class UtilityBelt
      */
     public Equipment findMostExpensiveEquipment()
     {
-		return null;
         // TODO: complete method
+    	Equipment mostExpensive = null;
+    	double maxPrice = Double.NEGATIVE_INFINITY;
+    	
+    	for (Equipment currEquipment : equipment) {
+    		if (currEquipment.getTotalPrice() > maxPrice) {
+    			mostExpensive = currEquipment;
+    			maxPrice = mostExpensive.getTotalPrice();
+    		}
+    	}
+    	return mostExpensive;
     }
 }
