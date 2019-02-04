@@ -60,10 +60,13 @@ public class UtilityBelt
     	// Use a buffered Reader on the file:
     	BufferedReader br = new BufferedReader(new FileReader(filename));
         String strg;
-        
+        strg = br.readLine();
+        strg = br.readLine();
         // TODO: complete method...
-        while ((strg = br.readLine()) != null) {
-        	equipment.add(br.readLine());
+        while (strg != null) {
+        	Equipment equip = new Equipment(strg);
+        	equipment.add(equip);
+        	strg = br.readLine();
         }
         // TODO: close reader...
         br.close();
